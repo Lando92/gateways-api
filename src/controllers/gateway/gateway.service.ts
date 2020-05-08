@@ -1,4 +1,4 @@
-import {Injectable, NotFoundException} from '@nestjs/common';
+import {HttpException, Injectable, NotFoundException} from '@nestjs/common';
 import {Gateway, PDevice} from '../../models';
 
 @Injectable()
@@ -9,13 +9,16 @@ export class GatewayService {
         return [...this.gateways];
     }
 
-    getGateways(id: string): Gateway {
+    getGateway(id: string): Gateway {
         const gateway = this.findGateway(id)[0];
         return {...gateway};
     }
 
     addGateway(displayName: string, ipv4Address: string, pdevices: PDevice[]) {
         const id = new Date().getTime().toString();
+        if (pdevices.length > 10) {
+            throw new HttpException('No more that 10 peripheral devices are allowed for a gateway', 500);
+        }
         const newGateway = {
             id,
             displayName,
@@ -36,6 +39,9 @@ export class GatewayService {
             updatedGateway.ipv4_address = ipv4Address;
         }
         if (pdevices) {
+            if (pdevices.length > 10) {
+                throw new HttpException('No more that 10 peripheral devices are allowed for a gateway', 500);
+            }
             updatedGateway.p_devices = pdevices;
         }
         this.gateways[gatewayIndex] = updatedGateway;

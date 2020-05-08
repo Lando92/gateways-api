@@ -14,7 +14,7 @@ export class GatewayController {
 
     @Get(':id')
     getGateways(@Param('id')id: string): any {
-        return this.gatewayService.getGateways(id);
+        return this.gatewayService.getGateway(id);
     }
 
     @Post()
