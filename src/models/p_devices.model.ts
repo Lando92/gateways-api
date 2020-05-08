@@ -2,10 +2,10 @@ export interface PDevice {
   uid: number;
   vendor: string;
   createdDate: Date;
-  status: Solution;
+  status: Status;
 }
 
-export enum Solution {
+export enum Status {
   Offline = 0,
   Online = 1,
 }
