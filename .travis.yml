@@ -7,7 +7,7 @@ branches:
 deploy:
   provider: heroku
   api_key:
-    secure: $HEROKU_KEY
+    secure: "59437a34-0f61-4356-a3f7-2ffcc2f31f05"
   app:
       master: my-app-staging
   on:
