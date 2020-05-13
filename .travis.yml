@@ -11,6 +11,6 @@ deploy:
   api_key:
     secure: $HEROKU_KEY
   app:
-      master: my-app-staging
+      master: gateways-api
   on:
     branch: master
