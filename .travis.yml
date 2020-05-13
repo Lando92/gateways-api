@@ -4,10 +4,12 @@ node_js:
 branches:
   only:
   - master
+before_install:
+  openssl aes-256-cbc -K $encrypted_355e94ba1091_key -iv $encrypted_355e94ba1091_iv -in super_secret.txt.enc -out super_secret.txt -d
 deploy:
   provider: heroku
   api_key:
-    secure: "59437a34-0f61-4356-a3f7-2ffcc2f31f05"
+    secure: ""
   app:
       master: my-app-staging
   on:
