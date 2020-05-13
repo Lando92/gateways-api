@@ -1,9 +1,10 @@
 import {HttpException, Injectable, NotFoundException} from '@nestjs/common';
 import {Gateway, PDevice} from '../../models';
+import {initialData} from '../../helpers/initials-data';
 
 @Injectable()
 export class GatewayService {
-    gateways: Gateway[] = [];
+    gateways: Gateway[] = initialData;
 
     getAllGateways() {
         return [...this.gateways];
@@ -16,8 +17,12 @@ export class GatewayService {
 
     addGateway(displayName: string, ipv4Address: string, pdevices: PDevice[]) {
         const id = new Date().getTime().toString();
+        const ipv4Pattern = '^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$';
         if (pdevices.length > 10) {
             throw new HttpException('No more that 10 peripheral devices are allowed for a gateway', 500);
+        }
+        if (!ipv4Address.match(ipv4Pattern)) {
+            throw new HttpException('Invalid IPv4 Address.', 400);
         }
         const newGateway = {
             id,
