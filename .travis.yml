@@ -10,7 +10,6 @@ deploy:
   provider: heroku
   api_key:
     secure: $HEROKU_KEY
-  app:
-      master: gateways-api
+  app: gateways-api
   on:
     branch: master
