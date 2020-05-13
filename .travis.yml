@@ -9,7 +9,7 @@ before_install:
 deploy:
   provider: heroku
   api_key:
-    secure: $HEROKU_KEY
+    secure: gh01jVfxA/Ig2bFy1EuhL1cggbjqV223QE4vWlTZ4fBCtiwfOyYkF77W5jDVjJJJram5w9qcOzhv9DquNqiGbTS1384irceRW84RVYaJi33E/MR0LypP4i7vdTW7vFGh3h81FDi9J8XNP0pfznFh/I+UbwUtPopZ7lNlgZx6xlYKllDIoC6N/L3lbVI7iws5U0lBSHvUUEH6fzXJflceVMLbtxeaoHS6s/QDgpZw8jRkD933hSID9lhpboCPo8rnnYCPfIorV8KPqtT9cpu0YhD5PS452VcoBIZGQpfNm9vvIGBC+FOMfMXfMtcfIE2O1LOrDk23rmrqW53LmnChgA8QG18LmPlxammHH3q7yXbADCvXjNB+ScXEi9vxHvSBprOLkOBIn7VrZ8sqibUkkVydzuLYS1/o+ghN4f3v/oX4qZvGI3IHcWRVStnkRpo2kJoHP22e8he8ninUHMbu+PEEUa5KtmkdH4DWeeAf48CignG6zYa7X1AVNjl+RxD+0QfiC79CcQW0ojhVk7OeaRsa5/bWD4ASGktVgLC4zD37d/jzGqPhS02Qt/NwT+U/U6MPVE2tgSi5hrvi1LTE/puSMW4sajaXlVYCOV80//Da8/ATlq2pdo+Xj4h4wax9iWz+2JNZ5tBwAFPc0Igwh7RVEQ2MAzLwpSANaVYvxHY=
   app: gateways-api
   on:
     branch: master
