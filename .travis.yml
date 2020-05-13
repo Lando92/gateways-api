@@ -9,7 +9,7 @@ before_install:
 deploy:
   provider: heroku
   api_key:
-    secure: $encrypted_355e94ba1091_key
+    secure: $HEROKU_KEY
   app:
       master: my-app-staging
   on:
